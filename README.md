@@ -1,5 +1,5 @@
-"# t-dash" 
-
+# T-DASH アプリ集
+デモサイトやコマンドメーカーなど、T-DASHで使用できるアプリを公開する
 
 ## Top
 https://valtes-rd.github.io/t-dash/
