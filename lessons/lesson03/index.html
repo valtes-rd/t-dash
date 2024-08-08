@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>色カードアプリ</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .card-container {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        .card {
+            flex: 0 0 auto;
+            width: 250px;
+            margin: 10px;
+            color: black;
+            background-color: #ffffff;
+            border: 2px solid #000000;
+            border-radius: 0.25rem;
+        }
+        .blue-title {
+            color: blue;
+            font-weight: bold;
+        }
+        .red-title {
+            color: red;
+            font-weight: bold;
+        }
+        .yellow-title {
+            color: yellow;
+            font-weight: bold;
+        }
+        .green-title {
+            color: green;
+            font-weight: bold;
+        }
+        .pink-title {
+            color: pink;
+            font-weight: bold;
+        }
+        iframe {
+            border: none;
+            width: 100%;
+            height: 100%;
+        }
+        .iframe-container {
+            width: 100%;
+            height: 300px; /* iframeの高さを調整 */
+        }
+    </style>
+</head>
+<body>
+    <div class="iframe-container">
+        <iframe src="card-content.html"></iframe>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</body>
+</html>

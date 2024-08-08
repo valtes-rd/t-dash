@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .card-container {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        .card {
+            flex: 0 0 auto;
+            width: 250px;
+            margin: 10px;
+            color: black;
+            background-color: #ffffff;
+            border: 2px solid #000000;
+            border-radius: 0.25rem;
+        }
+        .blue-title {
+            color: blue;
+            font-weight: bold;
+        }
+        .red-title {
+            color: red;
+            font-weight: bold;
+        }
+        .yellow-title {
+            color: yellow;
+            font-weight: bold;
+        }
+        .green-title {
+            color: green;
+            font-weight: bold;
+        }
+        .pink-title {
+            color: pink;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function showAlert(message) {
+            alert(message);
+        }
+
+        function attachClickEvent(button, message) {
+            button.onclick = function() {
+                showAlert(message);
+            };
+        }
+
+        function shuffleCards() {
+            const container = document.querySelector('.card-container');
+            const cards = Array.from(container.children);
+            while (cards.length) {
+                container.appendChild(cards.splice(Math.floor(Math.random() * cards.length), 1)[0]);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            shuffleCards();
+
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                const titleElement = card.querySelector('.card-title');
+                const button = card.querySelector('button');
+                const message = titleElement.textContent + 'のボタンがクリックされました';
+                attachClickEvent(button, message);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="card-container">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title blue-title">青カード</h5>
+                <p class="card-text">これはカードの説明です。</p>
+                <button>クリック</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title red-title">赤カード</h5>
+                <p class="card-text">これはカードの説明です。</p>
+                <button>クリック</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title yellow-title">黄色カード</h5>
+                <p class="card-text">これはカードの説明です。</p>
+                <button>クリック</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title green-title">緑カード</h5>
+                <p class="card-text">これはカードの説明です。</p>
+                <button>クリック</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title pink-title">ピンクカード</h5>
+                <p class="card-text">これはカードの説明です。</p>
+                <button>クリック</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
