@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>サンプルフォームアプリ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="email"], select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .submit-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .submit-button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+    </style>
+    <script>
+        function checkOptions() {
+            const options = document.getElementById("options");
+            const submitButton = document.querySelector(".submit-button");
+            submitButton.disabled = options.selectedIndex === -1;
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            checkOptions();
+            const options = document.getElementById("options");
+            options.addEventListener("change", checkOptions);
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>サンプルフォームアプリ</h1>
+        <form action="new_tab.html" method="get" target="_blank">
+            <div class="form-group">
+                <label for="name">名前</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div class="form-group">
+                <label for="email">メールアドレス</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div class="form-group">
+                <label for="options">オプション</label>
+                <select id="options" name="options" size="5">
+                    <option>Option1</option>
+                    <option>Option2</option>
+                    <option>Option3&nbsp;with&nbsp;&ensp;&ensp;spaces</option>
+                    <option>Option4<br>with<br>newlines</option>
+                    <option>Option5</option>
+                </select>
+            </div>
+            <button type="submit" class="submit-button">送信</button>
+        </form>
+    </div>
+</body>
+</html>
