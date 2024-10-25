@@ -1,0 +1,1683 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>T-DASH</title>
+    <link rel="icon" href="LOGO.png" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <script src="lib/react.development.js"></script>
+    <script src="lib/react-dom.development.js"></script>
+    <script src="lib/babel.min.js"></script>
+    <script src="lib/material-ui-development.js"></script>
+    <!-- Fonts to support Material Design -->
+    <link rel="stylesheet" href="Public/fonts/roboto.css" />
+    <!-- Icons to support Material Design -->
+    <link rel="stylesheet" href="Public/fonts/material-icons.css" />
+    <!-- Icons to support Material Design -->
+    <link rel="stylesheet" href="Public/css/bootstrap.min.v5.1.3.css"/>
+    <!-- import for routing -->
+    <script src='lib/react-router-dom.min.js'></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        //import components
+        const Links = ReactRouterDOM.Link;
+        const Route = ReactRouterDOM.Route;
+        const {
+            colors,
+            CssBaseline,
+            ThemeProvider,
+            Typography,
+            Container,
+            createTheme,
+            Box,
+            SvgIcon,
+            Link,
+            List,
+            ListItem,
+            ListItemButton,
+            ListItemIcon,
+            ListItemText,
+            Divider,
+            ExpandLess,
+            ExpandMore,
+            Collapse,
+            HomeIcon,
+            ExtensionIcon,
+            InfoIcon,
+            TextField,
+            Autocomplete,
+            Button,
+            ButtonGroup,
+            Dialog,
+            DialogActions,
+            DialogContent,
+            DialogContentText,
+            DialogTitle,
+            FormGroup,
+            FormControlLabel,
+            Checkbox,
+            Fab,
+            AddIcon,
+            Radio,
+            RadioGroup,
+            FormControl,
+            FormLabel,
+            Rating,
+            Select,
+            InputLabel,
+            MenuItem,
+            Slider,
+            Switch,
+            ToggleButton,
+            ToggleButtonGroup,
+            Icon,
+            Tooltip,
+            Accordion,
+            AccordionSummary,
+            AccordionDetails,
+            Paper,
+            Grid,
+            Table,
+            TableBody,
+            TableCell,
+            TableContainer,
+            TableHead,
+            TableRow,
+            Card,
+            CardMedia,
+            CardContent,
+            CardActions,
+            DataGrid
+        } = MaterialUI;
+
+        function ColoredLine({ color, height }) {
+            return (
+                <hr
+                    style={{
+                        color,
+                        backgroundColor: color,
+                        height: height
+                    }}
+                />
+            );
+        }
+
+        //Create homepage content
+        function Homepage() {
+            return (
+                <div>
+                    <div className="jumbotron text-center rounded">
+                        <h1>T-DASH HOME</h1>
+                        <p>Automated testing tool</p>
+                    </div>
+                    <div className="container tdash">
+                        <div className="row">
+                            <div className="col-sm-4">
+                                <div className="card text-center">
+                                    <div className="card-header">
+                                        Featured
+                                    </div>
+                                    <div className="bg-white">
+                                        <img src="./Public/img/LOGO.png" height="70" />
+                                    </div>
+                                    <div className="card-body">
+                                        <h5 className="card-title">Card title</h5>
+                                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <a className="btn btn-primary">Read more</a>
+                                    </div>
+                                </div>
+                                <Divider />
+                            </div>
+                            <div className="col-sm-8">
+                                <h2>TITLE HEADING</h2>
+                                <h5>Title description</h5>
+                                <p>Some text..</p>
+                                <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                                <Divider />
+                                <h2>TITLE HEADING</h2>
+                                <h5>Title description</h5>
+                                <p>Some text..</p>
+                                <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+
+        }
+
+        function comboboxes(options, id) {
+            return (
+                <Autocomplete id={id}
+                    options={options}
+                    style={{ width: 250 }}
+                    renderInput={(params) =>
+                        <TextField {...params} label="Days" variant="outlined" />}
+                />
+            );
+        }
+
+        function Comboboxpage() {
+            const options = ['Monday', 'Tuesday', 'Thursday',
+                'Friday', 'Saturday', 'Sunday'];
+            return (
+                <div className="container tdash">
+                    <div className="row justify-content-md-center">
+                        <div className="col-lg-10">
+                            <div className="jumbotron">
+                                <h1 className="display-4">Combo Box</h1>
+                                <p className="lead">A form control that, after a click displays a collapsable list of multiple values which can be used in forms, menus or surveys.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <ColoredLine color="blue" height={3} />
+                    <div className="card text-center">
+                        <div className="card-header">
+                            PLAYGROUND
+                        </div>
+                        <div className="bg-white">
+                        </div>
+                        <div className="card-body">
+                            <div className="container">
+                                <div className="row justify-content-md-center">
+                                    <div className="col-lg-4">
+                                        <div>
+                                            {comboboxes(options, "combo_1")}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        function buttons(color, id) {
+            var message = "";
+            if (color == "" || color == "primary") {
+                message = "BLUE";
+            }
+            if (color == "secondary") {
+                message = "PURPLE";
+            }
+            if (color == "warning") {
+                message = "ORANGE";
+            }
+            if (color == "error") {
+                message = "RED";
+            }
+            if (color == "success") {
+                message = "GREEN";
+            }
+
+            const [open, setOpen] = React.useState(false);
+
+            const handleClickOpen = (e) => {
+                num = e.target.value;
+                setOpen(true);
+            };
+
+            const handleClose = () => {
+                setOpen(false);
+            };
+            return (
+                <div>
+                    <Button id={id} onClick={handleClickOpen} color={color == "" ? "primary" : color} variant="contained" size="large">BUTTON</Button>
+                    <Dialog
+                        open={open}
+                        onClose={handleClose}
+                        aria-labelledby="alert-dialog-title"
+                        aria-describedby="alert-dialog-description"
+                    >
+                        <DialogTitle id="alert-dialog-title">
+                            BUTTON CLICKED
+                        </DialogTitle>
+                        <DialogContent>
+                            <DialogContentText id="alert-dialog-description">
+                                {message + " IS CLICKED"}
+                            </DialogContentText>
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={handleClose}>CLOSE</Button>
+                        </DialogActions>
+                    </Dialog>
+                </div>
+            );
+        }
+
+        function Buttonpage() {
+            return (
+                <div className="container tdash">
+                    <div className="row justify-content-md-center">
+                        <div className="col-lg-10">
+                            <div className="jumbotron">
+                                <h1 className="display-4">Button</h1>
+                                <p className="lead">A graphical control element that provides the user a simple way to trigger an event.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <ColoredLine color="blue" height={3} />
+                    <div className="card text-center">
+                        <div className="card-header">
+                            PLAYGROUND
+                        </div>
+                        <div className="bg-white">
+                        </div>
+                        <div className="card-body">
+                            <div className="container">
+                                <div className="row justify-content-md-center">
+                                    <div className="col-lg-4">
+                                        <div>
+                                            {buttons("success", "button_1")}
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        var num = "";
+
+        function Buttongroups(color) {
+            var message = "";
+
+            if (color == null) {
+                message = "BLUE";
+            }
+            if (color == "secondary") {
+                message = "PURPLE";
+            }
+            if (color == "warning") {
+                message = "ORANGE";
+            }
+            if (color == "error") {
+                message = "RED";
+            }
+            if (color == "success") {
+                message = "GREEN";
+            }
+
+            const [open, setOpen] = React.useState(false);
+
+            const handleClickOpen = (e) => {
+                num = e.target.value;
+                setOpen(true);
+            };
+
+            const handleClose = () => {
+                setOpen(false);
+            };
+            return (
+                <ButtonGroup variant="contained" color={color} aria-label="outlined primary button group">
+                    <Button value={"ONE"} onClick={handleClickOpen}>One</Button>
+                    <Button value={"TWO"} onClick={handleClickOpen}>Two</Button>
+                    <Button value={"THREE"} onClick={handleClickOpen}>Three</Button>
+                    <Dialog
+                        open={open}
+                        onClose={handleClose}
+                        aria-labelledby="alert-dialog-title"
+                        aria-describedby="alert-dialog-description"
+                    >
+                        <DialogTitle id="alert-dialog-title">
+                            {"BUTTON CLICKED"}
+                        </DialogTitle>
+                        <DialogContent>
+                            <DialogContentText id="alert-dialog-description">
+                                {message + " " + num}
+                            </DialogContentText>
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={handleClose}>CLOSE</Button>
+                        </DialogActions>
+                    </Dialog>
+                </ButtonGroup >
+
+            );
+        }
+
+        function Buttongrouppage() {
+            return (
+                <div className="container tdash">
+                    <div className="row justify-content-md-center">
+                        <div className="col-lg-10">
+                            <div className="jumbotron">
+                                <h1 className="display-4">Button Group</h1>
+                                <p className="lead">Group a series of buttons together on a single line with the button group.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <ColoredLine color="blue" height={3} />
+                    <div className="card text-center">
+                        <div className="card-header">
+                            PLAYGROUND
+                        </div>
+                        <div className="bg-white">
+                        </div>
+                        <div className="card-body">
+                            <div className="container">
+                                <div className="row justify-content-md-center">
+                                    <div className="col-lg-4">
+                                        <div>
+                                            {Buttongroups("success")}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        function checkboxes() {
+            return (
+                <FormGroup>
+                    <FormControlLabel control={<Checkbox defaultChecked />} label="Enabled 1" />
+                    <FormControlLabel disabled control={<Checkbox />} label="Disabled 1" />
+                </FormGroup>
+            );
+        }
+
+        function Checkboxpage() {
+            return (
+                <div className="container tdash">
+                    <div className="row justify-content-md-center">
+                        <div className="col-lg-10">
+                            <div className="jumbotron">
+                                <h1 className="display-4">Checkbox</h1>
+                                <p className="lead">A checkbox is a Graphical widget that permits the user to make a binary choice, i.e. a choice between one of two possible mutually exclusive options.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <ColoredLine color="blue" height={3} />
+                    <div className="card text-center">
+                        <div className="card-header">
+                            PLAYGROUND
+                        </div>
+                        <div className="bg-white">
+                        </div>
+                        <div className="card-body">
+                            <div className="container">
+                                <div className="row justify-content-md-center">
+                                    <div className="col-lg-4">
+                                        <div>
+                                            {checkboxes()}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        function Floatingactionbuttons(color) {
+            var message = "";
+
+            if (color == "" || color == "primary") {
+                message = "BLUE";
+            }
+            if (color == "secondary") {
+                message = "PURPLE";
+            }
+            if (color == "warning") {
+                message = "ORANGE";
+            }
+            if (color == "error") {
+                message = "RED";
+            }
+            if (color == "success") {
+                message = "GREEN";
+            }
+
+            const [open, setOpen] = React.useState(false);
+
+            const handleClickOpen = () => {
+                setOpen(true);
+            };
+
+            const handleClose = () => {
+                setOpen(false);
+            };
+            return (
+                <Box sx={{ '& > :not(style)': { m: 1 } }}>
+                    <Fab id={message + "_FAB"} onClick={handleClickOpen} size="MEDIUM" color={color} aria-label="add" >
+                        <Icon><span className="material-icons-outlined">
+                            done_outline
+                        </span></Icon>
+                    </Fab>
+                    <Dialog
+                        open={open}
+                        onClose={handleClose}
+                        aria-labelledby="alert-dialog-title"
+                        aria-describedby="alert-dialog-description"
+                    >
+                        <DialogTitle id="alert-dialog-title">
+                            {"BUTTON CLICKED"}
+                        </DialogTitle>
+                        <DialogContent>
+                            <DialogContentText id="alert-dialog-description">
+                                {message}
+                            </DialogContentText>
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={handleClose}>CLOSE</Button>
+                        </DialogActions>
+                    </Dialog>
+                </Box>
+            );
+        }
+
+        function FloatingActionButtonpage() {
+            return (
+                <div className="container tdash">
+                    <div className="row justify-content-md-center">
+                        <div className="col-lg-10">
+                            <div className="jumbotron">
+                                <h1 className="display-4">Floating Action Button</h1>
+                                <p className="lead">A floating action button is a beautifully animated web element that helps you expand your website's functionality without overcrowding your UI design.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <ColoredLine color="blue" height={3} />
+                    <div className="card text-center">
+                        <div className="card-header">
+                            PLAYGROUND
+                        </div>
+                        <div className="bg-white">
+                        </div>
+                        <div className="card-body">
+                            <div className="container">
+                                <div className="row justify-content-md-center">
+                                    <div className="col-lg-4">
+                                        <div>
+                                            {Floatingactionbuttons("success")}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        function radiobuttons() {
+            return (
+                <FormControl>
+                    <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
+                    <RadioGroup
+                        aria-labelledby="demo-radio-buttons-group-label"
+                        defaultValue="female"
+                        name="radio-buttons-group"
+                    >
+                        <FormControlLabel value="female" control={<Radio />} label="Female" />
+                        <FormControlLabel value="male" control={<Radio />} label="Male" />
+                        <FormControlLabel value="other" control={<Radio />} label="Other" />
+                    </RadioGroup>
+                </FormControl>
+            );
+        }
+
+        function RadioButtonpage() {
+            return (
+                <div className="container tdash">
+                    <div className="row justify-content-md-center">
+                        <div className="col-lg-10">
+                            <div className="jumbotron">
+                                <h1 className="display-4">Radio Button</h1>
+                                <p className="lead">A radio button or option button is a graphical control element that allows the user to choose only one of a predefined set of mutually exclusive options.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <ColoredLine color="blue" height={3} />
+                    <div className="card text-center">
+                        <div className="card-header">
+                            PLAYGROUND
+                        </div>
+                        <div className="bg-white">
+                        </div>
+                        <div className="card-body">
+                            <div className="container">
+                                <div className="row justify-content-md-center">
+                                    <div className="col-lg-4">
+                                        <div>
+                                            {radiobuttons()}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        function ratings(values, name) {
+            return (
+                <div>
+                    <Typography component="legend">{name}</Typography>
+                    <Rating
+                        name="simple-controlled"
+                        value={values[0]}
+                        onChange={(event, newValue) => {
+                            values[1](newValue);
+                        }}
+                    />
+                </div>
+            );
+        }
+
+        function Ratingpage() {
+            const [value1, setValue1] = React.useState(2);
+            const [value2, setValue2] = React.useState(2);
+            const [value3, setValue3] = React.useState(2);
+            const [value4, setValue4] = React.useState(2);
+            const [value5, setValue5] = React.useState(2);
+            return (
+                <div className="container tdash">
+                    <div className="row justify-content-md-center">
+                        <div className="col-lg-10">
+                            <div className="jumbotron">
+                                <h1 className="display-4">Rating</h1>
+                                <p className="lead">Rating is a rating system for your Blog or Website. A voting control which enables rating elements.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <ColoredLine color="blue" height={3} />
+                    <Box
+                        sx={{
+                            '& > legend': { mt: 3 },
+                        }}
+                    ></Box>
+                    <div className="card text-center">
+                        <div className="card-header">
+                            PLAYGROUND
+                        </div>
+                        <div className="bg-white">
+                        </div>
+                        <div className="card-body">
+                            <div className="container">
+                                <div className="row justify-content-md-center">
+                                    <div className="col-lg-4">
+                                        {ratings([value5, setValue5], "Rating 1")}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        function selects(values, handler) {
+            return (
+                <Box sx={{ minWidth: 120 }}>
+                    <FormControl fullWidth>
+                        <InputLabel id="demo-simple-select-label">Age</InputLabel>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={values[0]}
+                            label="Age"
+                            onChange={handler}
+                        >
+                            <MenuItem value={10}>10</MenuItem>
+                            <MenuItem value={20}>20</MenuItem>
+                            <MenuItem value={30}>30 </MenuItem>
+                            <MenuItem value={40}>40 </MenuItem>
+                            <MenuItem value={50}>50 </MenuItem>
+                        </Select>
+                    </FormControl>
+                </Box>
+            );
+        }
+
+        function Selectpage() {
+            const [age1, setAge1] = React.useState('');
+            const [age2, setAge2] = React.useState('');
+            const [age3, setAge3] = React.useState('');
+            const [age4, setAge4] = React.useState('');
+            const [age5, setAge5] = React.useState('');
+
+            const handleChange1 = (event) => {
+                setAge1(event.target.value);
+            };
+
+            const handleChange2 = (event) => {
+                setAge2(event.target.value);
+            };
+
+            const handleChange3 = (event) => {
+                setAge3(event.target.value);
+            };
+
+            const handleChange4 = (event) => {
+                setAge4(event.target.value);
+            };
+
+            const handleChange5 = (event) => {
+                setAge5(event.target.value);
+            };
+            return (
+                <div className="container tdash">
+                    <div className="row justify-content-md-center">
+                        <div className="col-lg-10">
+                            <div className="jumbotron">
+                                <h1 className="display-4">Select</h1>
+                                <p className="lead">The select element is used to create a drop-down list.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <ColoredLine color="blue" height={3} />
+                    <div className="card text-center">
+                        <div className="card-header">
+                            PLAYGROUND
+                        </div>
+                        <div className="bg-white">
+                        </div>
+                        <div className="card-body">
+                            <div className="container">
+                                <div className="row justify-content-md-center">
+                                    <div className="col-lg-4">
+                                        {selects([age5, setAge5], handleChange5)}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        function Sliderpage() {
+            return (
+                <div className="container tdash">
+                    <div className="row justify-content-md-center">
+                        <div className="col-lg-10">
+                            <div className="jumbotron">
+                                <h1 className="display-4">Slider</h1>
+                                <p className="lead">A Slider widget allows you to select a value from a defined range of values by moving the thumb in a horizontal or vertical direction.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <ColoredLine color="blue" height={3} />
+                    <div className="card text-center">
+                        <div className="card-header">
+                            PLAYGROUND
+                        </div>
+                        <div className="bg-white">
+                        </div>
+                        <div className="card-body">
+                            <div className="container">
+                                <div className="row justify-content-md-center">
+                                    <div className="col-lg-4">
+                                        <div>
+                                            <Slider defaultValue={50} aria-label="Disabled slider" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        const label = { inputProps: { 'aria-label': 'Switch demo' } };
+
+        function switches(id) {
+            return (
+                <div>
+                    <Switch id={"Switch_" + id + "_1"} {...label} defaultChecked />
+                    <Switch id={"Switch_" + id + "_2"} {...label} />
+                    <Switch id={"Switch_" + id + "_3"} {...label} disabled defaultChecked />
+                    <Switch id={"Switch_" + id + "_4"} {...label} disabled />
+                </div>
+            );
+        }
+
+        function Switchpage() {
+            return (
+                <div className="container tdash">
+                    <div className="row justify-content-md-center">
+                        <div className="col-lg-10">
+                            <div className="jumbotron">
+                                <h1 className="display-4">Switch</h1>
+                                <p className="lead">Switch is a two-state toggle switch widget that is used to select a choice between two options. It is generally an on/off button that indicates the current state of the switch.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <ColoredLine color="blue" height={3} />
+                    <div className="card text-center">
+                        <div className="card-header">
+                            PLAYGROUND
+                        </div>
+                        <div className="bg-white">
+                            {/* <img src={Header_image} height="70" /> */}
+                        </div>
+                        <div className="card-body">
+                            {/* <h5 className="card-title">COMPONENT</h5> */}
+                            <div className="container">
+                                <div className="row justify-content-md-center">
+                                    <div className="col-lg-4">
+                                        {switches("1")}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        function textfields(id) {
+            return (
+                <Box
+                    component="form"
+                    sx={{
+                        '& .MuiTextField-root': { m: 1, width: '25ch' },
+                    }}
+                    noValidate
+                    autoComplete="off"
+                >
+                    <div>
+                        <TextField
+                            required
+                            id={"outlined-required_" + id}
+                            label="Required"
+                            defaultValue="Hello World"
+                        />
+                        <TextField
+                            disabled
+                            id={"outlined-disabled_" + id}
+                            label="Disabled"
+                            defaultValue="Hello World"
+                        />
+                        <TextField
+                            id={"outlined-password-input_" + id}
+                            label="Password"
+                            type="password"
+                            autoComplete="current-password"
+                        />
+                        <TextField
+                            id={"outlined-read-only-input_" + id}
+                            label="Read Only"
+                            defaultValue="Hello World"
+                            InputProps={{
+                                readOnly: true,
+                            }}
+                        />
+                        <TextField
+                            id={"outlined-number_" + id}
+                            label="Number"
+                            type="number"
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                        />
+                        <TextField id={"outlined-search_" + id} label="Search field" type="search" />
+                        <TextField
+                            id={"outlined-helperText_" + id}
+                            label="Helper text"
+                            defaultValue="Default Value"
+                            helperText="Some important text"
+                        />
+                    </div>
+                </Box>
+            );
+        }
+
+        function Textfieldpage() {
+            return (
+
+                <div className="container tdash">
+                    <div className="row justify-content-md-center">
+                        <div className="col-lg-10">
+                            <div className="jumbotron">
+                                <h1 className="display-4">Text field</h1>
+                                <p className="lead">A field in which the user can type information.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <ColoredLine color="blue" height={3} />
+                    <div className="card text-center">
+                        <div className="card-header">
+                            PLAYGROUND
+                        </div>
+                        <div className="bg-white">
+                        </div>
+                        <div className="card-body">
+                            <div className="container">
+                                <div className="row justify-content-md-center">
+                                    <div className="col-lg-4">
+                                        {textfields("1")}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        function Togglebuttonpage() {
+            const [alignment1, setAlignment1] = React.useState('web');
+
+            const handleChange1 = (event, newAlignment1) => {
+                setAlignment1(newAlignment1);
+            };
+
+            const [alignment2, setAlignment2] = React.useState('web');
+
+            const handleChange2 = (event, newAlignment2) => {
+                setAlignment2(newAlignment2);
+            };
+
+            const [alignment3, setAlignment3] = React.useState('web');
+
+            const handleChange3 = (event, newAlignment3) => {
+                setAlignment3(newAlignment3);
+            };
+
+            const [alignment4, setAlignment4] = React.useState('web');
+
+            const handleChange4 = (event, newAlignment4) => {
+                setAlignment4(newAlignment4);
+            };
+
+            const [alignment5, setAlignment5] = React.useState('web');
+
+            const handleChange5 = (event, newAlignment5) => {
+                setAlignment5(newAlignment5);
+            };
+
+            return (
+                <div className="container tdash">
+                    <div className="row justify-content-md-center">
+                        <div className="col-lg-10">
+                            <div className="jumbotron">
+                                <h1 className="display-4">Toggle Button</h1>
+                                <p className="lead">A graphical control element that provides functionalites of a switch.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <ColoredLine color="blue" height={3} />
+                    <div className="card text-center">
+                        <div className="card-header">
+                            PLAYGROUND
+                        </div>
+                        <div className="bg-white">
+                        </div>
+                        <div className="card-body">
+                            <div className="container">
+                                <div className="row justify-content-md-center">
+                                    <div className="col-lg-4">
+                                        <div>
+                                            <ToggleButtonGroup
+                                                color="primary"
+                                                value={alignment5}
+                                                exclusive
+                                                onChange={handleChange5}
+                                            >
+                                                <ToggleButton value="web">Web</ToggleButton>
+                                                <ToggleButton value="android">Android</ToggleButton>
+                                                <ToggleButton value="ios">iOS</ToggleButton>
+                                            </ToggleButtonGroup>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        const inbox = [{
+            icon: <Icon><span className="material-icons-outlined">
+                inbox
+            </span></Icon>,
+            iconName: "Inbox"
+        }, {
+            icon: <Icon><span className="material-icons-outlined">
+                drafts
+            </span></Icon>,
+            iconName: "Drafts"
+        }];
+        const call = [{
+            icon: <Icon><span className="material-icons-outlined">
+                call
+            </span></Icon>,
+            iconName: "Call"
+        }, {
+            icon: <Icon><span className="material-icons-outlined">
+                call_end
+            </span></Icon>,
+            iconName: "End Call"
+        }];
+        const satisfy = [{
+            icon: <Icon><span className="material-icons-outlined">
+                hourglass_top
+            </span></Icon>,
+            iconName: "Start"
+        }, {
+            icon: <Icon><span className="material-icons-outlined">
+                hourglass_bottom
+            </span></Icon>,
+            iconName: "End"
+        }];
+
+        function lists(item) {
+            const listItems = item.map((d) =>
+                <List key={d.iconName}>
+                    <ListItem disablePadding>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                {d.icon}
+                            </ListItemIcon>
+                            <ListItemText primary={d.iconName} />
+                        </ListItemButton>
+                    </ListItem>
+                </List>
+
+            );
+            return (
+                listItems
+            );
+        }
+
+        function Listpage() {
+            return (
+                <div className="container tdash">
+                    <div className="row justify-content-md-center">
+                        <div className="col-lg-10">
+                            <div className="jumbotron">
+                                <h1 className="display-4">List</h1>
+                                <p className="lead">The List allows selection from a variety of specified items.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <ColoredLine color="blue" height={3} />
+                    <div className="card text-center">
+                        <div className="card-header">
+                            PLAYGROUND
+                        </div>
+                        <div className="bg-white">
+                        </div>
+                        <div className="card-body">
+                            <div className="container">
+                                <div className="row justify-content-md-center">
+                                    <div className="col-lg-4">
+                                        <div>
+                                            {lists(satisfy)}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        function tooltips(place) {
+            return (
+                <Tooltip title={"Hour Glass"} placement={place}>
+                    <Icon id={"Tooltip_" + place}>
+                        <span className="material-icons-outlined">
+                            hourglass_bottom
+                        </span>
+                    </Icon>
+                </Tooltip>
+            );
+        }
+
+        function Tooltippage() {
+            return (
+                <div className="container tdash">
+                    <div className="row justify-content-md-center">
+                        <div className="col-lg-10">
+                            <div className="jumbotron">
+                                <h1 className="display-4">Tooltip</h1>
+                                <p className="lead">A control element that provides functionality to switch states.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <ColoredLine color="blue" height={3} />
+                    <div className="card text-center">
+                        <div className="card-header">
+                            PLAYGROUND
+                        </div>
+                        <div className="bg-white">
+                        </div>
+                        <div className="card-body">
+                            <div className="container">
+                                <div className="row justify-content-md-center">
+                                    <div className="col-lg-4">
+                                        <div>
+                                            {tooltips("bottom")}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        function accordions() {
+            return (
+                <div>
+                    <Accordion>
+                        <AccordionSummary
+                            expandIcon={<Icon><span className="material-icons-outlined">
+                                import_export
+                            </span></Icon>}
+                            aria-controls="panel1a-content"
+                            id="panel1a-header"
+                        >
+                            <Typography>Accordion 1</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <Typography>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                                malesuada lacus ex, sit amet blandit leo lobortis eget.
+                            </Typography>
+                        </AccordionDetails>
+                    </Accordion>
+                    <Accordion>
+                        <AccordionSummary
+                            expandIcon={<Icon><span className="material-icons-outlined">
+                                import_export
+                            </span></Icon>}
+                            aria-controls="panel2a-content"
+                            id="panel2a-header"
+                        >
+                            <Typography>Accordion 2</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <Typography>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                                malesuada lacus ex, sit amet blandit leo lobortis eget.
+                            </Typography>
+                        </AccordionDetails>
+                    </Accordion>
+                    <Accordion disabled>
+                        <AccordionSummary
+                            expandIcon={<Icon><span className="material-icons-outlined">
+                                import_export
+                            </span></Icon>}
+                            aria-controls="panel3a-content"
+                            id="panel3a-header"
+                        >
+                            <Typography>Disabled Accordion</Typography>
+                        </AccordionSummary>
+                    </Accordion>
+                </div>
+            );
+        }
+
+        function Accordionpage() {
+            return (
+                <div className="container tdash">
+                    <div className="row justify-content-md-center">
+                        <div className="col-lg-10">
+                            <div className="jumbotron">
+                                <h1 className="display-4">Accordion</h1>
+                                <p className="lead">An accordion menu is a vertically stacked list of headers that can be clicked to reveal or hide content associated with them.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <ColoredLine color="blue" height={3} />
+                    <div className="card text-center">
+                        <div className="card-header">
+                            PLAYGROUND
+                        </div>
+                        <div className="bg-white">
+                        </div>
+                        <div className="card-body">
+                            <div className="container">
+                                <div className="row justify-content-md-center">
+                                    <div className="col-lg">
+                                        <div>
+                                            {accordions()}
+                                        </div>
+                                    </div>
+                 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        function not(a, b) {
+            return a.filter((value) => b.indexOf(value) === -1);
+        }
+
+        function intersection(a, b) {
+            return a.filter((value) => b.indexOf(value) !== -1);
+        }
+
+        function Transferlistpage() {
+            const [checked, setChecked] = React.useState([]);
+            const [left, setLeft] = React.useState([0, 1, 2, 3]);
+            const [right, setRight] = React.useState([4, 5, 6, 7]);
+
+            const leftChecked = intersection(checked, left);
+            const rightChecked = intersection(checked, right);
+
+            const handleToggle = (value) => () => {
+                const currentIndex = checked.indexOf(value);
+                const newChecked = [...checked];
+
+                if (currentIndex === -1) {
+                    newChecked.push(value);
+                } else {
+                    newChecked.splice(currentIndex, 1);
+                }
+
+                setChecked(newChecked);
+            };
+
+            const handleAllRight = () => {
+                setRight(right.concat(left));
+                setLeft([]);
+            };
+
+            const handleCheckedRight = () => {
+                setRight(right.concat(leftChecked));
+                setLeft(not(left, leftChecked));
+                setChecked(not(checked, leftChecked));
+            };
+
+            const handleCheckedLeft = () => {
+                setLeft(left.concat(rightChecked));
+                setRight(not(right, rightChecked));
+                setChecked(not(checked, rightChecked));
+            };
+
+            const handleAllLeft = () => {
+                setLeft(left.concat(right));
+                setRight([]);
+            };
+
+            const customList = (items) => (
+                <Paper sx={{ width: 200, height: 230, overflow: 'auto' }}>
+                    <List dense component="div" role="list">
+                        {items.map((value) => {
+                            const labelId = `transfer-list-item-${value}-label`;
+                            return (
+                                <ListItem
+                                    key={value}
+                                    role="listitem"
+                                    button
+                                    onClick={handleToggle(value)}
+                                >
+                                    <ListItemIcon>
+                                        <Checkbox
+                                            checked={checked.indexOf(value) !== -1}
+                                            tabIndex={-1}
+                                            disableRipple
+                                            inputProps={{
+                                                'aria-labelledby': labelId,
+                                            }}
+                                        />
+                                    </ListItemIcon>
+                                    <ListItemText id={labelId} primary={`List item ${value + 1}`} />
+                                </ListItem>
+                            );
+                        })}
+                        <ListItem />
+                    </List>
+                </Paper>
+            );
+            return (
+                <div className="container tdash">
+                    <div className="row justify-content-md-center">
+                        <div className="col-lg-10">
+                            <div className="jumbotron">
+                                <h1 className="display-4">Transfer List</h1>
+                                <p className="lead">A control element that allows the user to transfer an item from one list to another.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <ColoredLine color="blue" height={3} />
+                    <div className="card text-center">
+                        <div className="card-header">
+                            PLAYGROUND
+                        </div>
+                        <div className="bg-white">
+                        </div>
+                        <div className="card-body">
+                            <div className="container">
+                                <div className="row justify-content-md-center">
+                                    <div className="col-lg-8">
+                                        <Grid container spacing={2} justifyContent="center" alignItems="center">
+                                            <Grid item>{customList(left)}</Grid>
+                                            <Grid item>
+                                                <Grid container direction="column" alignItems="center">
+                                                    <Button
+                                                        sx={{ my: 0.5 }}
+                                                        variant="outlined"
+                                                        size="small"
+                                                        onClick={handleAllRight}
+                                                        disabled={left.length === 0}
+                                                        aria-label="move all right"
+                                                    >
+                                                        ≫
+                                                    </Button>
+                                                    <Button
+                                                        sx={{ my: 0.5 }}
+                                                        variant="outlined"
+                                                        size="small"
+                                                        onClick={handleCheckedRight}
+                                                        disabled={leftChecked.length === 0}
+                                                        aria-label="move selected right"
+                                                    >
+                                                        &gt;
+                                                    </Button>
+                                                    <Button
+                                                        sx={{ my: 0.5 }}
+                                                        variant="outlined"
+                                                        size="small"
+                                                        onClick={handleCheckedLeft}
+                                                        disabled={rightChecked.length === 0}
+                                                        aria-label="move selected left"
+                                                    >
+                                                        &lt;
+                                                    </Button>
+                                                    <Button
+                                                        sx={{ my: 0.5 }}
+                                                        variant="outlined"
+                                                        size="small"
+                                                        onClick={handleAllLeft}
+                                                        disabled={right.length === 0}
+                                                        aria-label="move all left"
+                                                    >
+                                                        ≪
+                                                    </Button>
+                                                </Grid>
+                                            </Grid>
+                                            <Grid item>{customList(right)}</Grid>
+                                        </Grid>
+                                    </div>
+                                    <div className="col-lg-8">
+
+                                    </div>
+                                </div>
+                                <div className="row justify-content-md-center"><br></br></div>
+                                <div className="row justify-content-md-center">
+                                    <div className="col-lg">
+
+                                    </div>
+                                    <div className="col-lg">
+
+                                    </div>
+                                </div>
+                                <div className="row justify-content-md-center"><br></br></div>
+                                <div className="row justify-content-md-center"></div>
+                                <div className="col-lg">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+
+        function createData(name, calories, fat, carbs, protein) {
+
+            return { name, calories, fat, carbs, protein };
+        }
+
+        const rows = [
+            createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
+            createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
+            createData('Eclair', 262, 16.0, 24, 6.0),
+            createData('Cupcake', 305, 3.7, 67, 4.3),
+            createData('Gingerbread', 356, 16.0, 49, 3.9),
+        ];
+
+        let dataRow = "";
+        const handleItemClick = item => {
+            dataRow = item;
+        }
+
+        function tables(rowData) {
+
+            const [open, setOpen] = React.useState(false);
+            const handleClickOpen = (e) => {
+                console.log(e.target.value);
+                setOpen(true);
+            };
+
+            const handleClose = () => {
+                setOpen(false);
+            };
+
+            return (
+                <TableContainer component={Paper}>
+                    <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>Dessert (100g serving)</TableCell>
+                                <TableCell align="right">Calories</TableCell>
+                                <TableCell align="right">Fat&nbsp;(g)</TableCell>
+                                <TableCell align="right">Carbs&nbsp;(g)</TableCell>
+                                <TableCell align="right">Protein&nbsp;(g)</TableCell>
+                                <TableCell align="right"></TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {rowData.map((row) => (
+                                <TableRow
+                                    key={row.name}
+                                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                >
+                                    <TableCell component="th" scope="row">
+                                        {row.name}
+                                    </TableCell>
+                                    <TableCell align="right">{row.calories}</TableCell>
+                                    <TableCell align="right">{row.fat}</TableCell>
+                                    <TableCell align="right">{row.carbs}</TableCell>
+                                    <TableCell align="right">{row.protein}</TableCell>
+                                    <TableCell align="right">
+                                        <Button value={row.name + " " + row.calories + " " + row.fat + " " + row.carbs + " " + row.protein}
+                                            onClick={
+                                                () => {
+                                                    handleItemClick("Name:" + row.name + 
+                                                    " Calories:" + row.calories + 
+                                                    " Fat:" + row.fat + 
+                                                    " Carbs:" + row.carbs + 
+                                                    " Protein:" + row.protein);
+                                                    setOpen(true);
+                                                }
+                                            }
+                                            color="primary" variant="contained" size="large">SHOW
+                                        </Button>
+                                        <Dialog
+                                            open={open}
+                                            onClose={handleClose}
+                                            aria-labelledby="alert-dialog-title"
+                                            aria-describedby="alert-dialog-description"
+                                        >
+                                            <DialogContent>
+                                                <DialogContentText id="alert-dialog-description">
+                                                    {dataRow}
+                                                </DialogContentText>
+                                            </DialogContent>
+                                            <DialogActions>
+                                                <Button onClick={handleClose}>CLOSE</Button>
+                                            </DialogActions>
+                                        </Dialog>
+                                    </TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+            );
+        }
+
+        function Tablepage() {
+            return (
+                <div className="container tdash">
+                    <div className="row justify-content-md-center">
+                        <div className="col-lg-10">
+                            <div className="jumbotron">
+                                <h1 className="display-4">Table</h1>
+                                <p className="lead">A table allows the user to arrange data into columns and rows.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <ColoredLine color="blue" height={3} />
+                    <div className="card text-center">
+                        <div className="card-header">
+                            PLAYGROUND
+                        </div>
+                        <div className="bg-white">
+                        </div>
+                        <div className="card-body overflow-auto">
+                            <div className="container">
+                                {tables(rows)}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        function dialogbuttons(color, id) {
+            var message = "";
+            if (color == "" || color == "primary") {
+                message = "BLUE";
+            }
+            if (color == "secondary") {
+                message = "PURPLE";
+            }
+            if (color == "warning") {
+                message = "ORANGE";
+            }
+            if (color == "error") {
+                message = "RED";
+            }
+            if (color == "success") {
+                message = "GREEN";
+            }
+            if (color == "valtes") {
+                color = "primary";
+            }
+            const [open, setOpen] = React.useState(false);
+
+            const handleClickOpen = (e) => {
+                setOpen(true);
+            };
+
+            const handleClose = () => {
+                setOpen(false);
+            };
+            const vid = <iframe width="550" height="300" src="https://www.youtube.com/embed/4hOD7ZHrj3o" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>;
+            const dialogbox = <DialogContentText id="alert-dialog-description">
+                {message + " IS CLICKED"}
+            </DialogContentText>;
+            return (
+                <div>
+                    <Button id={id} onClick={handleClickOpen} color={color == "" ? "primary" : color} variant="contained" size="large">{id == "button_6" ? "VALTES" : "PRESS ME"}</Button>
+                    <Dialog
+                        open={open}
+                        onClose={handleClose}
+                        aria-labelledby="alert-dialog-title"
+                        aria-describedby="alert-dialog-description"
+                    >
+                        <DialogContent>
+                            {color == "primary" ? vid : dialogbox}
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={handleClose}>CLOSE</Button>
+                        </DialogActions>
+                    </Dialog>
+                </div>
+            );
+        }
+
+        function Dialogpage() {
+            return (
+                <div className="container tdash">
+                    <div className="row justify-content-md-center">
+                        <div className="col-lg-10">
+                            <div className="jumbotron">
+                                <h1 className="display-4">Dialog</h1>
+                                <p className="lead">A dialog is a type of modal window that appears in front of app content to provide critical information or ask for a decision.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <ColoredLine color="blue" height={3} />
+                    <div className="card text-center">
+                        <div className="card-header">
+                            PLAYGROUND
+                        </div>
+                        <div className="bg-white">
+                        </div>
+                        <div className="card-body">
+                            <div className="container">
+                                <div className="row justify-content-md-center">
+                                    <div className="col-lg-4">
+                                        <div>
+                                            {dialogbuttons("success", "button_1")}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        //Pages components
+        const HomeComponent = () => <Homepage />
+        const ComboboxComponent = () => <Comboboxpage />
+        const ButtonComponent = () => <Buttonpage />
+        const ButtongroupComponent = () => <Buttongrouppage />
+        const CheckboxComponent = () => <Checkboxpage />
+        const FloatingActionButtonComponent = () => <FloatingActionButtonpage />
+        const RadiobuttonComponent = () => <RadioButtonpage />
+        const RatingComponent = () => <Ratingpage />
+        const SelectComponent = () => <Selectpage />
+        const SliderComponent = () => <Sliderpage />
+        const SwitchComponent = () => <Switchpage />
+        const TextfieldComponent = () => <Textfieldpage />
+        const TogglebuttonComponent = () => <Togglebuttonpage />
+        const ListComponent = () => <Listpage />
+        const TooltipComponent = () => <Tooltippage />
+        const AccordionComponent = () => <Accordionpage />
+        const TransferListComponent = () => <Transferlistpage />
+        const TableComponent = () => <Tablepage />
+        const DialogComponent = () => <Dialogpage />
+
+        function App() {
+            //List of button pages
+            var listitems = ["Combobox", "Button", "Buttongroup", "Checkbox", "Floating Action Button", "Radio Button",
+                "Rating", "Select", "Slider", "Switch", "Text Field", "Transfer List", "Toggle Button", "List", "Table", "Tooltip",
+                "Dialogs", "Accordion"];
+            //Create a component based on button pages
+            const items = listitems.map(item => {
+                return (
+                    <List key={item.replace(/\s/g, '')} component="div" disablePadding className="d-grid gap-2">
+                        <Links id={item.replace(/\s/g, '') + "_page_button"} style={{ textDecoration: 'none', color: '#000000' }} to={"/" + item.replace(/\s/g, '')}>
+                            <ListItemButton key={item.replace(/\s/g, '')} sx={{ pl: 4 }}>
+                                <ListItemText primary={item} />
+                            </ListItemButton>
+                        </Links>
+                    </List>
+                );
+            })
+
+            //Main application
+            return (
+                <ReactRouterDOM.HashRouter>
+                    <div>
+                        <nav className="navbar navbar-light sticky-top bg-white flex-md-nowrap p-0">
+                            <div className="bg-white">
+                                <Links id="Home_page_image" to="/"><img src="./Public/img/LOGO.png" alt="" height="70" /></Links>
+                            </div>
+                        </nav>
+                        <ColoredLine color="blue" height={5} />
+                        <div className="container-fluid">
+                            <div className="row">
+                                <nav className="col-md-2 d-none d-md-block bg-light sidebar sideNavScroll">
+                                    <Box>
+                                        <nav>
+                                            <List>
+                                                <Links id="Home_page_button" style={{ textDecoration: 'none', color: '#000000' }} to="/">
+                                                    <ListItemButton key="Home" sx={{ pl: 4 }}>
+                                                        <ListItemText primary="HOME" />
+                                                    </ListItemButton>
+                                                </Links>
+                                            </List>
+                                        </nav>
+                                        <Divider />
+                                        <nav>
+                                            {items}
+                                        </nav>
+                                        <Divider />
+                                        <nav>
+                                            <List>
+                                                <Links id="About_page_button" style={{ textDecoration: 'none', color: '#000000' }} to="/About">
+                                                    <ListItemButton key="About" sx={{ pl: 4 }}>
+                                                        <ListItemText primary="ABOUT" />
+                                                    </ListItemButton>
+                                                </Links>
+                                            </List>
+                                        </nav>
+                                    </Box>
+                                </nav>
+                                <div className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                                    <Route path="/" exact component={HomeComponent} />
+                                    <Route path="/Combobox" exact component={ComboboxComponent} />
+                                    <Route path="/Button" exact component={ButtonComponent} />
+                                    <Route path="/Buttongroup" exact component={ButtongroupComponent} />
+                                    <Route path="/Checkbox" exact component={CheckboxComponent} />
+                                    <Route path="/FloatingActionButton" exact component={FloatingActionButtonComponent} />
+                                    <Route path="/Radiobutton" exact component={RadiobuttonComponent} />
+                                    <Route path="/Rating" exact component={RatingComponent} />
+                                    <Route path="/Select" exact component={SelectComponent} />
+                                    <Route path="/Slider" exact component={SliderComponent} />
+                                    <Route path="/Switch" exact component={SwitchComponent} />
+                                    <Route path="/Textfield" exact component={TextfieldComponent} />
+                                    <Route path="/Togglebutton" exact component={TogglebuttonComponent} />
+                                    <Route path="/List" exact component={ListComponent} />
+                                    <Route path="/Tooltip" exact component={TooltipComponent} />
+                                    <Route path="/Accordion" exact component={AccordionComponent} />
+                                    <Route path="/TransferList" exact component={TransferListComponent} />
+                                    <Route path="/Table" exact component={TableComponent} />
+                                    <Route path="/Dialogs" exact component={DialogComponent} />
+                                </div>
+                            </div>
+                            <ColoredLine color="blue" height={5} />
+                            <div className="position-relative">
+                                <div className="position-absolute top-0 end-0">
+                                    <div>
+                                        <p className="navbar-brand col-sm-3 col-md-2 mr-0">Valtes Advanced Technology, 2022</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ReactRouterDOM.HashRouter>
+            );
+        }
+
+        ReactDOM.render(
+            <React.StrictMode>
+                <App />
+            </React.StrictMode>,
+            document.querySelector('#root'),
+        );
+    </script>
+</body>
+
+</html>
+
+<style>
+    .tdash {
+        padding-left: 150px;
+        padding-right: 150px;
+    }
+</style>
