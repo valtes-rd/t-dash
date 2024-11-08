@@ -1,0 +1,473 @@
+<!-- html -->
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-DASH SAMPLE</title>
+</head>
+
+<body class="padding_3per">
+    <h1>
+        T-DASH SAMPLE
+    </h1>
+    <div class="padding_3per">
+        <div class=" tdash_el_area">
+            <h2>テキストエリア（未入力）</h2>
+            <ul>
+                <li>テキストを入力する</li>
+                <li>キーを入力する</li>
+            </ul>
+            <div class="tdash_target_element">
+                <textarea id="input_textarea" name="input_textarea" data-tdash_id="1"></textarea>
+            </div>
+        </div>
+        <div class=" tdash_el_area">
+            <h2>テキストエリア（入力済み）</h2>
+            <ul>
+                <li>テキストを取得する</li>
+                <li>テキストエリアの値が一致するか検証する</li>
+                <li>テキストエリアの値が一致しないか検証する</li>
+                <li>テキストエリアに値が含まれるか検証する</li>
+                <li>テキストエリアに値が含まれていないか検証する</li>
+            </ul>
+            <div class="tdash_target_element">
+                <textarea id="inputed_textarea" name="input_textarea" data-tdash_id="2"
+                    style="width: 300px">T-DASHサンプル画面サイトへようこそ</textarea>
+            </div>
+        </div>
+        <div class=" tdash_el_area">
+            <h2>テキストフィールド（入力済み）</h2>
+            <ul>
+                <li>テキストフィールドの値が一致するか検証する</li>
+                <li>テキストフィールドの値が一致しないか検証する</li>
+                <li>テキストフィールドに値が含まれるか検証する</li>
+                <li>テキストフィールドに値が含まれていないか検証する</li>
+            </ul>
+            <div class="tdash_target_element">
+                <input id="textfield" type="text" value="T-DASHサンプル画面サイトへようこそ" data-tdash_id="3" style="width: 300px">
+            </div>
+        </div>
+        <div class=" tdash_el_area">
+            <h2>クリック用ボタン</h2>
+            <ul>
+                <li>要素をクリックする</li>
+                <li>要素が表示されていたらクリックする</li>
+            </ul>
+            <div class="tdash_target_element">
+                <button id="click_button" data-tdash_id="4">クリック</button>
+            </div>
+        </div>
+        <div class=" tdash_el_area">
+            <h2>ダブルクリック用ボタン</h2>
+            <ul>
+                <li>ダブルクリックする</li>
+            </ul>
+            <div class="tdash_target_element">
+                <div id="w_click" data-tdash_id="5">ダブルクリック</div>
+                <div id="w_click_result">→</div>
+            </div>
+        </div>
+        <div class=" tdash_el_area">
+            <h2>送信ボタン</h2>
+            <ul>
+                <li>送信ボタンをクリックする</li>
+            </ul>
+            <div class="tdash_target_element">
+                <input id="subumit_button" type="submit" value="送信する" data-tdash_id="6">
+            </div>
+        </div>
+        <div class=" tdash_el_area">
+            <h2>遷移リンク</h2>
+            <ul>
+                <li>遷移リンクをクリックする</li>
+            </ul>
+            <div class="tdash_target_element">
+                <a id="link" href="https://www.t-dash.io" data-tdash_id="7">遷移リンク</a>
+            </div>
+        </div>
+        <div class=" tdash_el_area">
+            <h2>リンクを新規タブで開く</h2>
+            <ul>
+                <li>ウィンドウを選択する</li>
+                <li>最新のウィンドウに切り替える</li>
+            </ul>
+            <div class="tdash_target_element">
+                <a id="link_tdash" href="https://www.t-dash.io" target="_blank" data-tdash_id="8">T-DASH
+                    ローコードテスト自動化ツール</a><br>
+                <a id="link_qbook" href="https://www.qbook.jp/" target="_blank" data-tdash_id="9">Qbook |
+                    ソフトウェアの品質向上プラットフォーム
+                    by VALTES</a>
+            </div>
+        </div>
+        <div class=" tdash_el_area">
+            <h2>マウスオーバー</h2>
+            <ul>
+                <li>マウスオーバーする</li>
+            </ul>
+            <div class="tdash_target_element">
+                <div id="mouseover" data-tdash_id="10">マウスオーバーしてください</div>
+                <div id="mouseover_result">→</div>
+            </div>
+        </div>
+        <div class=" tdash_el_area">
+            <h2>ドラッグ</h2>
+            <ul>
+                <li>ドラッグする</li>
+            </ul>
+            <div class="tdash_target_element">
+                <div>画像をドラッグしてください</div>
+                <img id="drag"
+                    src="data:image/png;base64,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"
+                    draggable="true" ondragstart="drag_start(event)" data-tdash_id="11">
+            </div>
+        </div>
+        <div class=" tdash_el_area">
+            <h2>ドロップ</h2>
+            <ul>
+                <li>ドロップする</li>
+            </ul>
+            <div class="tdash_target_element">
+                <div id="drop" style="border: solid;" ondragover="drag_over(event)" ondrop="drop(event, id)"
+                    draggable="false" data-tdash_id="12">
+                    ここにドロップしてください
+                </div>
+            </div>
+        </div>
+        <div class=" tdash_el_area">
+            <h2>チェックボックス（未選択）</h2>
+            <ul>
+                <li>チェックボックスを選択にする</li>
+                <li>チェックボックスが未選択状態か検証する</li>
+            </ul>
+            <div class="tdash_target_element">
+                <input id="not_checked_checkbox" type="checkbox" id="not_checked_checkbox" value="0"
+                    data-tdash_id="13">未選択
+            </div>
+        </div>
+        <div class=" tdash_el_area">
+            <h2>チェックボックス（選択済）</h2>
+            <ul>
+                <li>チェックボックスを未選択にする</li>
+                <li>チェックボックスが選択状態か検証する</li>
+            </ul>
+            <div class="tdash_target_element">
+                <input id="checked_checkbox" type="checkbox" value="1" checked="checked" data-tdash_id="14">選択済
+            </div>
+        </div>
+        <div class=" tdash_el_area">
+            <h2>リスト（未選択）</h2>
+            <ul>
+                <li>ラベルを指定してリストを選択にする</li>
+                <li>値を指定してリストを選択にする</li>
+                <li>全てのリストを選択にする</li>
+                <li>リスト要素が一つも選択されていないか検証する</li>
+            </ul>
+            <div class="tdash_target_element">
+                <select multiple id="not_selected_list" data-tdash_id="15">
+                    <option value="A">リストA</option>
+                    <option value="B">リストB</option>
+                    <option value="C">リストC</option>
+                </select>
+            </div>
+        </div>
+        <div class=" tdash_el_area">
+            <h2>リスト（選択済）</h2>
+            <ul>
+                <li>ラベルを指定してリストを未選択にする</li>
+                <li>値を指定してリストを未選択にする</li>
+                <li>全てのリストを未選択にする</li>
+                <li>リスト要素が選択されているか検証する</li>
+            </ul>
+            <div class="tdash_target_element">
+                <select multiple id="selected_list" data-tdash_id="16">
+                    <option value="A" selected>リストA</option>
+                    <option value="B" selected>リストB</option>
+                    <option value="C" selected>リストC</option>
+                </select>
+            </div>
+        </div>
+        <div class=" tdash_el_area">
+            <h2>アラート</h2>
+            <ul>
+                <li>現在のアラートを閉じる</li>
+            </ul>
+            <div class="tdash_target_element">
+                <button id="alert_button" data-tdash_id="17">アラートを表示</button>
+            </div>
+        </div>
+        <div class=" tdash_el_area">
+            <h2>表示待機</h2>
+            <ul>
+                <li>画面に要素が表示されるまで待つ</li>
+            </ul>
+            <div class="tdash_target_element">
+                <button id="delay_display_button" data-tdash_id="18">押下後、３秒待機してから要素を表示</button>
+                <div id="delay_display_button_text" data-tdash_id="19"></div>
+            </div>
+        </div>
+        <div class=" tdash_el_area">
+            <h2>非表示待機</h2>
+            <ul>
+                <li>画面に要素が表示されなくなるまで待つ</li>
+            </ul>
+            <div class="tdash_target_element">
+                <button id="delay_hide_button" data-tdash_id="20">押下後、３秒待機してから要素を非表示</button>
+                <div id="delay_hide_button_text" data-tdash_id="21">表示</div>
+            </div>
+        </div>
+        <div class=" tdash_el_area">
+            <h2>テキスト</h2>
+            <ul>
+                <li>要素のテキストが一致するか検証する</li>
+                <li>要素のテキストが一致しないか検証する</li>
+                <li>要素のテキストが値を含んでいるかを検証する</li>
+                <li>要素のテキストが値を含んでいないかを検証する</li>
+            </ul>
+            <div class="tdash_target_element">
+                <div id="text" data-tdash_id="22">T-DASH</div>
+            </div>
+        </div>
+        <div class=" tdash_el_area">
+            <h2>テキスト（正規表現マッチ）</h2>
+            <ul>
+                <li>テキストの値が正規表現にマッチするか検証する</li>
+            </ul>
+            <div class="tdash_target_element">
+                <div id="regular_expression_matching" data-tdash_id="23">tdash</div>
+            </div>
+        </div>
+        <div class=" tdash_el_area">
+            <h2>要素の表示</h2>
+            <ul>
+                <li>要素が表示されているか検証する</li>
+            </ul>
+            <div class="tdash_target_element">
+                <div id="display_element" data-tdash_id="24">表示されている要素</div>
+            </div>
+        </div>
+        <div class=" tdash_el_area">
+            <h2>要素の非表示</h2>
+            <ul>
+                <li>要素が表示されていないか検証する（存在しない要素のパスを指定する）</li>
+            </ul>
+            <div class="tdash_target_element">
+                <button id="remove_execute_el" data-tdash_id="25">クリックで直下の要素を削除</button>
+                <div id="remove_target_el" data-tdash_id="26">要素が表示されている</div>
+            </div>
+        </div>
+        <div class=" tdash_el_area">
+            <h2>ラジオボタン（選択済）</h2>
+            <ul>
+                <li>ラジオボタンが選択されているか検証する</li>
+            </ul>
+            <div class="tdash_target_element">
+                <form id="checked_radio_button" class="radio_button tdash_target_element">
+                    <label>
+                        <input id="checked_radio_button_A" type="radio" name="radio_button_1" value="A" checked
+                            data-tdash_id="27">ラジオボタンA
+                    </label>
+                    <br>
+                    <label>
+                        <input id="checked_radio_button_B" type="radio" name="radio_button_1" value="B"
+                            data-tdash_id="28">ラジオボタンB
+                    </label>
+                    <br>
+                    <label>
+                        <input id="checked_radio_button_C" type="radio" name="radio_button_1" value="C"
+                            data-tdash_id="29">ラジオボタンC
+                    </label>
+                </form>
+            </div>
+        </div>
+        <div class=" tdash_el_area">
+            <h2>ラジオボタン（未選択）</h2>
+            <ul>
+                <li>ラジオボタンが一つも選択されていないか検証する</li>
+            </ul>
+            <div class="tdash_target_element">
+                <form id="not_checked_radio_button" class="radio_button">
+                    <label>
+                        <input id="not_checked_radio_button_A" type="radio" name="radio_button_2" value="A"
+                            data-tdash_id="30">ラジオボタンA
+                    </label>
+                    <br>
+                    <label>
+                        <input id="not_checked_radio_button_B" type="radio" name="radio_button_2" value="B"
+                            data-tdash_id="31">ラジオボタンB
+                    </label>
+                    <br>
+                    <label>
+                        <input id="not_checked_radio_button_C" type="radio" name="radio_button_2" value="C"
+                            data-tdash_id="32">ラジオボタンC
+                    </label>
+                </form>
+            </div>
+        </div>
+        <div class=" tdash_el_area">
+            <h2>フレーム</h2>
+            <ul>
+                <li>フレームを選択する</li>
+            </ul>
+            <div class="tdash_target_element">
+                <iframe id="inlineFrame" title="Inline Frame Example" width="1000" height="500"
+                    src="/tdash-objects-vuejs-master/vue_index.html" data-tdash_id="33">
+                </iframe>
+
+            </div>
+        </div>
+        <!-- 22000 -->
+        <div class=" tdash_el_area">
+            <h2>ファイル添付</h2>
+            <ul>
+                <li>ファイル添付（ボタン）</li>
+            </ul>
+            <div class="tdash_target_element">
+                <input id="fileUpLoad" type="file" value="ファイル添付" data-tdash_id="34" style="width: 300px">
+            </div>
+        </div>
+        <div class=" tdash_el_area">
+            <h2>アラート</h2>
+            <ul>
+                <li>現在のアラートのOKボタンをクリックする</li>
+                <li>現在のアラートのキャンセルボタンをクリックする</li>
+            </ul>
+            <div class="tdash_target_element">
+                <input type="button" value="OK/キャンセルアラートを表示する" id="alert_ok_ot_cancel" data-tdash_id="35"
+                    onclick="alert_ok_or_cancel();" />
+            </div>
+        </div>
+        <div class=" tdash_el_area">
+            <h2>属性</h2>
+            <ul>
+                <li>要素の指定した属性の値が一致するか検証する</li>
+                <li>属性の値を取得する </li>
+                <li>取得した属性値を入力する </li>
+            </ul>
+            <div class="tdash_target_element">
+                <div id="have_my_attr" data-tdash_id="36" sampleAttribute="sampleValue">sampleAttribute属性を持つタグ</div>
+                <textarea id="input_textarea_for_attr" name="input_textarea_for_attr" data-tdash_id="37"></textarea>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<!-- js -->
+<script type="text/javascript">
+    const custom_data_el = document.getElementById("not_checked_radio_button_C")
+    const msg = custom_data_el.getAttribute("data-tdash_id")
+
+    // 共通イベント
+    const add_event = ((target_id, result_id, event) => {
+        const target_el = document.getElementById(target_id)
+        target_el.addEventListener(event, () => {
+            // イベント関数選択
+
+            // アラート
+            if (target_id === "alert_button") {
+                window.alert("アラートボタンが押下されました。")
+                return
+            }
+
+            // 要素を削除
+            if (target_id === "remove_execute_el") {
+                document.getElementById(result_id).remove();
+                return
+            }
+
+            // 待機してから表示
+            if (target_id === "delay_display_button") {
+                setTimeout(function () {
+                    const result_el = document.getElementById(result_id);
+                    const new_el = document.createElement("div")
+                    new_el.innerHTML = "→" + event + "されました";
+                    result_el.appendChild(new_el);
+                }, 3000);
+                return
+            }
+
+            // 待機してから非表示
+            if (target_id === "delay_hide_button") {
+                setTimeout(function () {
+                    document.getElementById(result_id).remove();
+                }, 3000);
+                return
+            }
+
+            // 要素単純追加
+            if (result_id) {
+                const result_el = document.getElementById(result_id);
+                result_el.innerHTML = "→" + event + "されました";
+                return
+            }
+
+        });
+    });
+
+    // ダブルクリックのイベント
+    add_event("w_click", "w_click_result", "dblclick");
+    // マウスオーバーのイベント
+    add_event("mouseover", "mouseover_result", "mouseover");
+
+    // ドラッグ＆ドロップ
+    const drag_start = ((event) => {
+        // ドラッグされた要素のtextデータにidを設定
+        event.dataTransfer.setData("text", event.target.id);
+    });
+    const drop = ((event, id) => {
+        var drop_id = event.dataTransfer.getData("text");
+        var drop_el = document.getElementById(drop_id);
+        // ドロップされたエリアに追加する
+        event.currentTarget.appendChild(drop_el);
+        event.preventDefault();
+    });
+    const drag_over = ((event) => {
+        event.preventDefault();
+    });
+
+    add_event("alert_button", "alert", "click");
+    add_event("delay_display_button", "delay_display_button_text", "click");
+    add_event("delay_hide_button", "delay_hide_button_text", "click");
+
+    add_event("remove_execute_el", "remove_target_el", "click");
+
+    // 2.2.000
+    const alert_ok_or_cancel = (() => {
+        var res = confirm("OK/キャンセルアラートです。");
+        if (res == true) {
+            alert("OKしました。");
+        }
+        else {
+            alert("キャンセルしました。");
+        }
+    });
+
+</script>
+
+<!-- css -->
+<style>
+    body,textarea {
+        font-family: "Noto Sans JP", sans-serif;
+    }
+    .padding_3per {
+        padding: 3%;
+    }
+
+    .tdash_el_area {
+        padding: 2%;
+    }
+
+    .tdash_target_element {}
+
+    textarea {
+        width: 200px;
+        height: 50px;
+    }
+
+    input[type="text"] {
+        width: 200px;
+    }
+</style>
