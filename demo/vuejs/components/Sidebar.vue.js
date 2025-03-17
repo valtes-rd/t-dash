@@ -106,7 +106,7 @@ Vue.component('Sidebar', {
       <v-list-item
       v-for="(item, i) in items"
       :key="i"
-      route :to="item.route">
+      :to="item.route">
         <v-list-item-icon>
           <v-icon v-text="item.icon"></v-icon>
         </v-list-item-icon>
