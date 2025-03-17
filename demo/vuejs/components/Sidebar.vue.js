@@ -1,5 +1,5 @@
 Vue.component('Sidebar', {
-  data: function(){
+  data: function () {
     return {
       baseUrl: '/t-dash/demo/vuejs/vue_index.html#/',
       items: [
@@ -11,103 +11,107 @@ Vue.component('Sidebar', {
         {
           icon: 'mdi-widgets',
           text: 'Combo Box',
-          route:'/Combo_box',
+          route: '/Combo_box',
         },
         {
           icon: 'mdi-widgets',
           text: 'Button',
-          route:'/Button',
+          route: '/Button',
         },
         {
           icon: 'mdi-widgets',
           text: 'Button Group',
-          route:'/BtnGroup',
+          route: '/BtnGroup',
         },
         {
           icon: 'mdi-widgets',
           text: 'Checkbox',
-          route:'/Checkbox',
+          route: '/Checkbox',
         },
         {
           icon: 'mdi-widgets',
           text: 'Floating Action Button',
-          route:'/Floating_action_button',
+          route: '/Floating_action_button',
         },
         {
           icon: 'mdi-widgets',
           text: 'Radio Button',
-          route:'/Radio_button',
+          route: '/Radio_button',
         },
         {
           icon: 'mdi-widgets',
           text: 'Rating',
-          route:'/Rating',
+          route: '/Rating',
         },
         {
           icon: 'mdi-widgets',
           text: 'Select',
-          route:'/Select',
+          route: '/Select',
         },
         {
           icon: 'mdi-widgets',
           text: 'Slider',
-          route:'/Slider',
+          route: '/Slider',
         },
         {
           icon: 'mdi-widgets',
           text: 'Switch',
-          route:'/Switch',
+          route: '/Switch',
         },
         {
           icon: 'mdi-widgets',
           text: 'Text Field',
-          route:'/Text_field',
+          route: '/Text_field',
         },
         {
           icon: 'mdi-widgets',
           text: 'Transfer List',
-          route:'/Transfer_List',
+          route: '/Transfer_List',
         },
         {
           icon: 'mdi-widgets',
           text: 'Toggle Button',
-          route:'/Toggle_Button',
+          route: '/Toggle_Button',
         },
         {
           icon: 'mdi-widgets',
           text: 'List',
-          route:'/List',
+          route: '/List',
         },
         {
           icon: 'mdi-widgets',
           text: 'Table',
-          route:'/Table',
+          route: '/Table',
         },
         {
           icon: 'mdi-widgets',
           text: 'Tooltip',
-          route:'/Tooltip',
+          route: '/Tooltip',
         },
         {
           icon: 'mdi-widgets',
           text: 'Dialogs',
-          route:'/Dialogs',
+          route: '/Dialogs',
         },
         {
           icon: 'mdi-widgets',
           text: 'Accordion',
-          route:'/Accordion',
+          route: '/Accordion',
         },
       ],
-    }
+    };
   },
-  created: function() {},
+  created: function () {},
   methods: {
     getFullRoute: function (item) {
-      return this.baseUrl + item.route;
+      // item.routeの先頭のスラッシュを取り除く
+      const routePath = item.route.startsWith('/')
+        ? item.route.substring(1)
+        : item.route;
+      return this.baseUrl + routePath;
     },
   },
-  template:`<v-navigation-drawer app clipped permanent="true">
+  template: `<v-navigation-drawer app clipped permanent="true">
       <v-list-item
       v-for="(item, i) in items"
       :key="i"
@@ -119,5 +123,5 @@ Vue.component('Sidebar', {
           <v-list-item-title v-text="item.text"></v-list-item-title>
         </v-list-item-content>
       </v-list-item>
-  </v-navigation-drawer>`
+  </v-navigation-drawer>`,
 });
