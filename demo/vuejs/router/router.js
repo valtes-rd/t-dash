@@ -21,5 +21,5 @@ const router = new VueRouter({
     { path: '/Transfer_list', component: Transfer_List },
   ],
   mode: 'hash',
-  // base: '/t-dash/demo/vuejs/vue_index.html#',
+  base: '',
 });
