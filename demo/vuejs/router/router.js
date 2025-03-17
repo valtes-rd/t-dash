@@ -20,6 +20,6 @@ const router = new VueRouter({
     { path: '/Tooltip', component: Tooltip },
     { path: '/Transfer_list', component: Transfer_List },
   ],
-  // mode: 'history',
-  base: '/t-dash/demo/vuejs/vue_index.html#',
+  mode: 'hash',
+  base: '#',
 });
