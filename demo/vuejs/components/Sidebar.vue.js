@@ -1,6 +1,7 @@
 Vue.component('Sidebar', {
-  data: function(){ 
+  data: function(){
     return {
+      baseUrl: '/t-dash/demo/vuejs/vue_index.html#/',
       items: [
         // {
         //   icon: 'mdi-home',
@@ -101,13 +102,16 @@ Vue.component('Sidebar', {
     }
   },
   created: function() {},
-  methods: {},
-  template:
-  `<v-navigation-drawer app clipped permanent="true">
+  methods: {
+    getFullRoute: function (item) {
+      return this.baseUrl + item.route;
+    },
+  },
+  template:`<v-navigation-drawer app clipped permanent="true">
       <v-list-item
       v-for="(item, i) in items"
       :key="i"
-      route :to="item.route">
+      :to="getFullRoute(item)">
         <v-list-item-icon>
           <v-icon v-text="item.icon"></v-icon>
         </v-list-item-icon>
@@ -116,4 +120,4 @@ Vue.component('Sidebar', {
         </v-list-item-content>
       </v-list-item>
   </v-navigation-drawer>`
-})
+});
